@@ -5,6 +5,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import ItemDetails from './components/item/ItemDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import CreateItem from './components/admin/CreateItem';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path='/item/:id' component={ItemDetails}/>
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+            <Route path='/admin/create' component={CreateItem} />
           </Switch>
         </div>
       </BrowserRouter>
