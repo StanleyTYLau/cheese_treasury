@@ -6,7 +6,7 @@ const LoggedInLinks = () => {
     <ul className="right">
       <li><NavLink to="/cart">Cart</NavLink></li>
       <li><NavLink to="/">Log Out</NavLink></li>
-      <li><NavLink to="/" className="btn btn-floating pink lighten-1">TEST</NavLink></li>      
+      <li><NavLink to="/" className="btn btn-floating pink lighten-1">TT</NavLink></li>      
     </ul>
   )
 }
