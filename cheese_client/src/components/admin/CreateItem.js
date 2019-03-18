@@ -6,6 +6,7 @@ class CreateItem extends Component {
   state = {
     title: '',
     description: '',
+    inventory: '',
   }
 
   handleChange = (e) => {
@@ -32,6 +33,10 @@ class CreateItem extends Component {
           <div className="input-field">
             <label htmlFor="description">Description</label>
             <textarea id="description" className="materialize-textarea" onChange={this.handleChange}></textarea>
+          </div>
+          <div className="input-field">
+            <label htmlFor="inventory">Inventory</label>
+            <input type="number" id="inventory" onChange={this.handleChange}/>
           </div>
 
           <div className="input-field">
