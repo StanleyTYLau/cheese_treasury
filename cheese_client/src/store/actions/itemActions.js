@@ -9,7 +9,7 @@ export const createItem = (item) => {
     }).then(() => {
       dispatch({ type: 'CREATE_ITEM', item: item })
     }).catch((err) => {
-      dispatch({ type: 'CREATE+ITEM_ERROR', err})
+      dispatch({ type: 'CREATE_ITEM_ERROR', err})
     })
   
   }
