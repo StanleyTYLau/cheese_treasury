@@ -1,12 +1,16 @@
 import React from 'react';
 import ItemSummary from './ItemSummary';
+import { Link } from 'react-router-dom'
 
 const ItemList = ({items}) => {
   return (
     <div className="project-list section">
       {items && items.map(item => {
         return (
-          <ItemSummary item={item} key={item.id}/>
+          <Link to={'/item/' + item.id}>
+            <ItemSummary item={item} key={item.id}/>  
+          </Link>
+          
         )
       })}
     </div>
