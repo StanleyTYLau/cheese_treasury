@@ -2,9 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 const ItemDetails = (props) => {
-  const {item} = props
+  const {item, auth} = props
+  if (!auth.uid) return <Redirect to='/register' />
   
   if (item) {
     return (
@@ -41,7 +43,8 @@ const mapStateToProps = (state, ownProps) => {
   const items = state.firestore.data.items //grabs all items data from firestore
   const item = items ? items[id] : null //grabs the specific item data
   return {
-    item: item
+    item: item,
+    auth: state.firebase.auth
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createItem } from '../../store/actions/itemActions';
+import { Redirect } from 'react-router-dom'
 
 class CreateItem extends Component {
   state = {
@@ -21,6 +22,8 @@ class CreateItem extends Component {
   }
 
   render() {
+    if (!this.props.auth.uid) return <Redirect to='/register' />
+
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -48,10 +51,16 @@ class CreateItem extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createItem: (item) => dispatch(createItem(item))
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateItem);

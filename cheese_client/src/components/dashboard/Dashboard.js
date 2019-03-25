@@ -3,11 +3,13 @@ import ItemList from '../item/ItemList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
   render() {
     //console.log(this.props);
-    const {items} = this.props;
+    const {items, auth} = this.props;
+    if (!auth.uid) return <Redirect to='/register' />
 
     return (
       <div className="dashboard container">
@@ -26,7 +28,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   
   return {
-    items: state.firestore.ordered.items
+    items: state.firestore.ordered.items,
+    auth: state.firebase.auth
   }
 }
 
